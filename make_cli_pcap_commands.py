@@ -102,7 +102,8 @@ if vm_name not in vm_list:
 if 'vmnic' in vm_name:
     print(f"You've identified device {vm_name}. This is a physical nic on an ESXi host. Here is the command to"
           " perform packet capture:\n")
-    print(f"pktcap-uw --uplink {my_dict[vm_name]} --capture UplinkSndKernel,UplinkRcvKernel -o - | tcpdump-uw -enr -\n\n")
+    print(f"pktcap-uw --uplink {my_dict[vm_name]} --capture UplinkSndKernel,UplinkRcvKernel -o - | tcpdump-uw -enr -")
+    print()
     print(f"pktcap-uw --uplink {my_dict[vm_name]} --capture PortInput,PortOutput -o - | tcpdump-uw -enr -")
     print()
 elif 'vmk' in vm_name:
@@ -112,7 +113,8 @@ elif 'vmk' in vm_name:
     print()
 else:
     print(f"You've identified device {vm_name}. This is a VM. We are capturing at the virtual nic of the VM.\n")
-    print(f"pktcap-uw --switchport {my_dict[vm_name]} --capture VnicTx,VnicRx -o - | tcpdump-uw -enr -\n\n")
+    print(f"pktcap-uw --switchport {my_dict[vm_name]} --capture VnicTx,VnicRx -o - | tcpdump-uw -enr -")
+    print()
     print(f"pktcap-uw --switchport {my_dict[vm_name]} --capture PortInput,PortOutput -o - | tcpdump-uw -enr -")
     print()
 
